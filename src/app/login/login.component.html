@@ -1,0 +1,26 @@
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-wrap">
+          <h1>Log in with your email account</h1>
+          <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off" (submit)="onLogin({email: email.value, password: password.value})">
+            <div class="form-group">
+              <label for="email" class="sr-only" >Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com" required #email>
+            </div>
+            <div class="form-group">
+              <label for="key" class="sr-only">Password</label>
+              <input type="password" name="key" id="key" class="form-control" placeholder="Password" required #password>
+            </div>
+            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log In" *ngIf="button">
+            <button id="btn-login2" class="btn btn-custom btn-lg btn-block" disabled  *ngIf="!button"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+              <span class="sr-only">Loading...</span></button>
+          </form>
+          <a (click)="onNavigateRegister()" class="forget" data-toggle="modal" data-target=".forget-modal" style="cursor: pointer">Don't have an account?</a>
+          <hr>
+        </div>
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
