@@ -42,40 +42,40 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6" >
-      <h2>Your Jobs</h2>
+      <h2>Posted Jobs</h2>
 
       <div *ngFor="let j of gjobs | async" >
-      <div class="panel panel-default" *ngIf="j.cid === uid">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{j.title}}</h3>
-        </div>
-        <div class="panel-body">
-          {{j.details}}
-          <br>
-          <br>
-          <button class="btn btn-danger" (click)="onDelete(j.$key)">Delete</button>
-        </div>
-      </div>
-      </div>
-    </div>
-      <div class="col-md-6" >
-        <h2>Applications</h2>
-
-        <div *ngFor="let a of ajobs | async" >
-          <div class="panel panel-default" *ngIf="a.job.cid === uid">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{a.job.title}}</h3>
-            </div>
-            <div class="panel-body">
-              {{a.job.details}}
-              <br>
-              <br>
-              <button class="btn btn-danger" (click)="onViewResume(a.sid, myModal)">See Resume</button>
-              <button class="btn btn-danger" (click)="onDelete(a.$key)">Reject</button>
-            </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{j.title}}</h3>
+          </div>
+          <div class="panel-body">
+            {{j.details}}
+            <br>
+            <br>
+            <button class="btn btn-danger" (click)="onDelete(j.$key)">Delete</button>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-md-6" >
+      <h2>Applied By Students</h2>
+
+      <div *ngFor="let a of ajobs | async" >
+        <div class="panel panel-default" >
+          <div class="panel-heading">
+            <h3 class="panel-title">{{a.job.title}}</h3>
+          </div>
+          <div class="panel-body">
+            {{a.job.details}}
+            <br>
+            <br>
+            <button class="btn btn-danger" (click)="onViewResume(a.sid, myModal)">See Resume</button>
+            <button class="btn btn-danger" (click)="onDelete(a.$key)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>

@@ -3,11 +3,11 @@ import {AngularFire} from "angularfire2";
 import {AuthService} from "../../services/auth.service";
 
 @Component({
-  selector: 'app-company',
-  templateUrl: './company.component.html',
-  styleUrls: ['./company.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class CompanyComponent implements OnInit {
+export class AdminComponent implements OnInit {
   gjobs;
   ajobs;
   uid;

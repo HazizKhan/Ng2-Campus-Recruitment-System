@@ -20,6 +20,7 @@ import { ResumeComponent } from './home/student/resume/resume.component';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { CreateComponent } from './home/student/resume/create/create.component';
 import { UpdateComponent } from './home/student/resume/update/update.component';
+import { AdminComponent } from './home/admin/admin.component';
 const firebaseConfig = {
   apiKey: "AIzaSyCpAQ53bHwjeZ-lhtxdCNx7dNwULip5-z0",
   authDomain: "ng2-crs.firebaseapp.com",
@@ -48,6 +49,7 @@ const myFirebaseAuthConfig = {
     ResumeComponent,
     CreateComponent,
     UpdateComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
