@@ -9,9 +9,13 @@ import {AuthService} from "../../services/auth.service";
 })
 export class CompanyComponent implements OnInit {
   gjobs;
+  ajobs;
   uid;
+  modal = false;
+  stuResume;
   constructor(private af: AngularFire, private as: AuthService) {
     this.gjobs = this.af.database.list('/jobs');
+    this.ajobs = this.af.database.list('/applied');
     this.uid = this.as.getUID();
   }
 
@@ -20,5 +24,18 @@ export class CompanyComponent implements OnInit {
   onDelete(x){
     this.gjobs.remove(x);
 
+  }
+  onViewResume(sid, modal){
+    this.af.database.object(sid).subscribe((val)=>{
+      this.modal = true;
+      this.stuResume = val.resume;
+      modal.style.display = "block";
+    })
+
+  }
+  onCloseModal(m){
+    this.modal = false;
+
+    m.style.display = "none";
   }
 }
