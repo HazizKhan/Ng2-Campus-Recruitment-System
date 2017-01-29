@@ -1,0 +1,26 @@
+<app-nav-auth></app-nav-auth>
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-wrap">
+          <h1>Post Job</h1>
+          <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off" (submit)="onPostJob({title: title.value, details: details.value, cid: cid})">
+            <div class="form-group">
+              <label for="jobTitle" class="sr-only" >Job Title</label>
+              <input type="text" name="email" id="jobTitle" class="form-control" placeholder="Job Title" required #title>
+            </div>
+            <div class="form-group">
+              <label for="details" class="sr-only">Job Details</label>
+              <!--<input type="password" name="key" id="key" class="form-control" placeholder="Password" required #password>-->
+              <textarea name="details" id="details" cols="30" rows="10" placeholder="Job Details..." required class="form-control" #details></textarea>
+            </div>
+            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Post" *ngIf="button">
+            <button id="btn-login2" class="btn btn-custom btn-lg btn-block" disabled  *ngIf="!button"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+              <span class="sr-only">Loading...</span></button>
+          </form>
+        </div>
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>

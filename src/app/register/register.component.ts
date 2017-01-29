@@ -26,11 +26,22 @@ export class RegisterComponent implements OnInit {
         this.af.auth.login(x).then((data)=>{ //login
           // console.log(data);
           this.af.database.object(data.uid).set({
-            accountType: this.accountType,
-            uid: data.uid
+            accountType: this.accountType
           });
+          this.af.database.object(data.uid).subscribe((val)=>{
+            this.authService.setAccountType(val.accountType);
+
+          });
+          if (this.accountType == "Student"){
+            this.router.navigate(['/resume']);
+
+          }
+          else{
+            this.router.navigate(['/home']);
+
+          }
           this.authService.updateUID(data.uid);
-          this.authService.onLogin();
+
         }).catch((err)=>{ //login
           alert('Your account is created\n'+ err+'\n Try to login');
           })

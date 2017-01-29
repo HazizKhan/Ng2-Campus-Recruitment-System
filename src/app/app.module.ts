@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import {AppComponent} from './app.component';
 import { NavUnauthComponent } from './navbar/nav-unauth/nav-unauth.component';
 import { NavAuthComponent } from './navbar/nav-auth/nav-auth.component';
 import {AngularFire, AngularFireModule, AuthMethods, AuthProviders} from "angularfire2";
@@ -13,7 +12,14 @@ import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import {routes} from "./router.config";
 import {AuthService} from "./services/auth.service";
-import { CompanyComponent } from './company/company.component';
+import { HomeComponent } from './home/home.component';
+import { CompanyComponent } from './home/company/company.component';
+import { StudentComponent } from './home/student/student.component';
+import { PostJobComponent } from './home/company/post-job/post-job.component';
+import { ResumeComponent } from './home/student/resume/resume.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { CreateComponent } from './home/student/resume/create/create.component';
+import { UpdateComponent } from './home/student/resume/update/update.component';
 const firebaseConfig = {
   apiKey: "AIzaSyCpAQ53bHwjeZ-lhtxdCNx7dNwULip5-z0",
   authDomain: "ng2-crs.firebaseapp.com",
@@ -30,21 +36,29 @@ const myFirebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     NavUnauthComponent,
     NavAuthComponent,
     RegisterComponent,
     LoginComponent,
     CompanyComponent,
+    HomeComponent,
+    CompanyComponent,
+    StudentComponent,
+    PostJobComponent,
+    ResumeComponent,
+    CreateComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,41 @@
+<form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off" [formGroup]="resumeForm" (ngSubmit)="onUpdate(resumeForm.value)">
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input type="text" name="email" id="name" class="form-control" placeholder="Name" required [formControl]="resumeForm.controls['name']">
+  </div>
+  <div class="form-group">
+    <label>Date Of Birth: (dd/mm/yyyy)</label>
+    <table class="table table-striped" style="border:none;">
+      <tbody>
+      <tr>
+        <th><input type="number" class="form-control" placeholder="dd" [formControl]="resumeForm.controls['dd']"></th>
+        <th><input type="number" class="form-control" placeholder="mm" [formControl]="resumeForm.controls['mm']"></th>
+        <th><input type="number" class="form-control" placeholder="yyyy" [formControl]="resumeForm.controls['yyyy']"></th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="for-group">
+    <label>Qualification: </label>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Examination</th>
+        <th>Marks</th>
+        <th>Year</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="text" class="form-control" placeholder="Examination" [formControl]="resumeForm.controls['exm']"></td>
+        <td><input type="number" class="form-control" placeholder="Marks" [formControl]="resumeForm.controls['marks']"></td>
+        <td><input type="number" class="form-control" placeholder="year" [formControl]="resumeForm.controls['year']"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="submit" id="btn-login3" class="btn btn-custom btn-lg btn-block" value="Update" *ngIf="button">
+  <button id="btn-login2" class="btn btn-custom btn-lg btn-block" disabled  *ngIf="!button"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+    <span class="sr-only">Loading...</span></button>
+</form>
+<p>update</p>

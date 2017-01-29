@@ -10,8 +10,10 @@ import {AuthService} from "../services/auth.service";
 })
 export class LoginComponent implements OnInit {
   button = true;
+  obj;
+  constructor(private router:Router, private af: AngularFire, private authService: AuthService) {
 
-  constructor(private router:Router, private af: AngularFire, private authService: AuthService) { }
+  }
 
   ngOnInit() {
   }
@@ -21,9 +23,14 @@ export class LoginComponent implements OnInit {
   onLogin(x){
     this.button = false;
     this.af.auth.login(x).then((data)=>{ //login
-      alert('logged in');
-      console.log(data)
-      this.authService.onLogin();
+      this.authService.updateUID(data.uid);
+      this.af.database.object(data.uid).subscribe((val)=>{
+        this.authService.setAccountType(val.accountType);
+        this.router.navigate(['/home']);
+      });
+
+
+      console.log(this.authService.getUID());
     }).catch((err)=>{ //login
       this.button = true;
       alert(err);

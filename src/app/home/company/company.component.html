@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <h2>Your Jobs</h2>
+    <div class="col-md-6" >
+      <div *ngFor="let j of gjobs | async" >
+      <div class="panel panel-default" *ngIf="j.cid === uid">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{j.title}}</h3>
+        </div>
+        <div class="panel-body">
+          {{j.details}}
+          <br>
+          <br>
+          <button class="btn btn-danger" (click)="onDelete(j.$key)">Delete</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>

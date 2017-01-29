@@ -1,20 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 
 @Injectable()
-export class AuthService {
-  status = false;
-  uid;
-  constructor() { }
-  getStatus(){
-    return status;
+export class AuthService{
+  accountType;
+  uid = null;
+  constructor() {
   }
-  onLogin(){
-    this.status = true;
-  }
+
   getUID(){
     return this.uid;
   }
   updateUID(id){
     this.uid = id;
+  }
+  getAccountType(){
+    return this.accountType;
+  }
+  setAccountType(t){
+    this.accountType = t;
   }
 }

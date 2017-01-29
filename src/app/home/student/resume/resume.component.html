@@ -1,0 +1,14 @@
+<app-nav-auth></app-nav-auth>
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-wrap">
+          <h1 style="font-size: 30px">Resume</h1>
+          <app-create *ngIf="resume.$value === null"></app-create>
+          <app-update *ngIf="resume.$value !== null"></app-update>
+        </div>
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+</section>
