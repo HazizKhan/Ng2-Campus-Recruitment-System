@@ -33,6 +33,9 @@ export class AdminComponent implements OnInit {
     this.gjobs.remove(x);
 
   }
+  onRemove(x){
+    this.ajobs.remove(x);
+  }
   onViewResume(sid, modal){
     this.af.database.object(sid).subscribe((val)=>{
       this.modal = true;

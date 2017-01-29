@@ -59,7 +59,8 @@ const myFirebaseAuthConfig = {
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService
+  providers: [AuthService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

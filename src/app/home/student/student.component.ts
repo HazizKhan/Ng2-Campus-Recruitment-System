@@ -28,7 +28,4 @@ export class StudentComponent implements OnInit {
       });
     console.log(x);
   }
-  onDelete(x){
-    this.ajobs.remove(x);
-  }
 }
